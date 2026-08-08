@@ -22,3 +22,12 @@ Run the installer:
 bash install.sh
 
 and ur done i ratted u haha loser
+
+# REQUIREMENTS
+
+Install the following packages before using the dotfiles:
+
+sudo pacman -S git fish kitty fastfetch tofi
+
+also you need kde twin
+
