@@ -42,7 +42,7 @@ echo "[2] Install Fastfetch"
 echo "[3] Install Fish"
 echo "[4] Install Kitty"
 echo "[5] Install Tofi"
-echo "[6] Install KDE Theme"
+echo "[6] Install DerNoxium"
 echo "[7] Exit"
 
 echo ""
@@ -84,8 +84,8 @@ case $choice in
     ;;
 
 6)
-    cp -r kde-theme ~/.local/share/plasma/look-and-feel/
-    echo "KDE Theme installed!"
+    cp -r dernoxium ~/.local/share/plasma/look-and-feel/
+    echo "DerNoxium installed!"
     ;;
 
 7)
