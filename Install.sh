@@ -58,7 +58,7 @@ case $choice in
     cp -r fish ~/.config/
     cp -r kitty ~/.config/
     cp -r tofi ~/.config/
-    cp -r kde-theme ~/.local/share/plasma/look-and-feel/
+    cp -r dernoxium ~/.local/share/plasma/look-and-feel/
 
     echo "Everything installed!"
     ;;
