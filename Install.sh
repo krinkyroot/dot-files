@@ -1,3 +1,4 @@
+```bash
 #!/bin/bash
 
 clear
@@ -31,6 +32,7 @@ cat << 'EOF'
 EOF
 
 # Colors
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -57,7 +59,8 @@ echo -e "${MAGENTA}[4]${RESET} Install Kitty"
 echo -e "${BLUE}[5]${RESET} Install Tofi"
 echo -e "${CYAN}[6]${RESET} Install Dernoxium KDE Theme"
 echo -e "${GREEN}[7]${RESET} Install Nerd Font"
-echo -e "${RED}[8]${RESET} Exit"
+echo -e "${MAGENTA}[8]${RESET} Install Cool Apps"
+echo -e "${RED}[9]${RESET} Exit"
 
 echo ""
 echo -ne "${WHITE}Choose an option: ${RESET}"
@@ -90,6 +93,21 @@ case $choice in
     sudo pacman -S --needed ttf-jetbrains-mono-nerd
 
     echo -e "${GREEN}✓ Nerd Font installed${RESET}"
+
+    echo ""
+    echo -e "${CYAN}Installing cool apps...${RESET}"
+
+    sudo pacman -S --needed code strawberry
+
+    if command -v yay &> /dev/null; then
+        yay -S --needed spotify webcord
+    elif command -v paru &> /dev/null; then
+        paru -S --needed spotify webcord
+    else
+        echo -e "${YELLOW}⚠ yay or paru not found.${RESET}"
+        echo -e "${YELLOW}Spotify and Webcord were skipped.${RESET}"
+    fi
+
     echo ""
     echo -e "${GREEN}Everything installed successfully!${RESET}"
     ;;
@@ -126,6 +144,34 @@ case $choice in
     ;;
 
 8)
+    echo -e "${CYAN}Installing cool apps...${RESET}"
+    echo ""
+
+    echo -e "${BLUE}Installing Visual Studio Code...${RESET}"
+    sudo pacman -S --needed code
+    echo -e "${GREEN}✓ Visual Studio Code installed!${RESET}"
+
+    echo -e "${BLUE}Installing Strawberry...${RESET}"
+    sudo pacman -S --needed strawberry
+    echo -e "${GREEN}✓ Strawberry installed!${RESET}"
+
+    if command -v yay &> /dev/null; then
+        echo -e "${BLUE}Installing Spotify and Webcord...${RESET}"
+        yay -S --needed spotify webcord
+    elif command -v paru &> /dev/null; then
+        echo -e "${BLUE}Installing Spotify and Webcord...${RESET}"
+        paru -S --needed spotify webcord
+    else
+        echo -e "${YELLOW}⚠ yay or paru was not found.${RESET}"
+        echo -e "${YELLOW}Spotify and Webcord were not installed.${RESET}"
+        echo -e "${YELLOW}Install an AUR helper and run option 8 again.${RESET}"
+    fi
+
+    echo ""
+    echo -e "${GREEN}✓ Cool apps installation complete!${RESET}"
+    ;;
+
+9)
     echo -e "${RED}Exiting...${RESET}"
     exit 0
     ;;
